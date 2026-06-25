@@ -1,0 +1,15 @@
+{
+  "originHash" : "5f5ac0f7168fa5e0dad82f4049dfa8c474395488acb64c8f48c307ba4140ec7c",
+  "pins" : [
+    {
+      "identity" : "admicroadssdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CanThaiLinh/AdmicroAdsSDK.git",
+      "state" : {
+        "revision" : "f8acb2e8ae25d8e743169d3bcd2e07e519be03d2",
+        "version" : "2.1.24"
+      }
+    }
+  ],
+  "version" : 3
+}
