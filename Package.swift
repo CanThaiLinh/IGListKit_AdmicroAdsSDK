@@ -27,7 +27,8 @@ let package = Package(
             dependencies: [
                 .target(name: "IGListKit_AdmicroAdsSDK_V2"),
                 .product(name: "AdmicroAdsSDK", package: "AdmicroAdsSDK"),
-                .product(name: "IGListKit", package: "IGListKit")
+                .product(name: "IGListKit", package: "IGListKit"),
+                .product(name: "IGListDiffKit", package: "IGListKit")
             ],
             path: "Sources/IGListKit_AdmicroAdsSDKTarget"
         ),
