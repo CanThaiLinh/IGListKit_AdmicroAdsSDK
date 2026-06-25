@@ -15,6 +15,16 @@ let package = Package(
             type: .dynamic,
             targets: ["IGListKit_AdmicroAdsSDK"]
         ),
+        .library(
+            name: "IGListDiffKit",
+            type: .dynamic,
+            targets: ["IGListDiffKit"]
+        ),
+        .library(
+            name: "IGListKit",
+            type: .dynamic,
+            targets: ["IGListKit"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/CanThaiLinh/AdmicroAdsSDK.git", exact: "2.1.24"),
@@ -24,12 +34,27 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
+            name: "IGListDiffKit",
+            dependencies: [
+                .product(name: "IGListDiffKit", package: "IGListKit")
+            ],
+            path: "Sources/IGListDiffKit"
+        ),
+        .target(
+            name: "IGListKit",
+            dependencies: [
+                .product(name: "IGListKit", package: "IGListKit"),
+                .target(name: "IGListDiffKit")
+            ],
+            path: "Sources/IGListKit"
+        ),
+        .target(
             name: "IGListKit_AdmicroAdsSDK",
             dependencies: [
                 .target(name: "IGListKit_AdmicroAdsSDK_V2"),
                 .product(name: "AdmicroAdsSDK", package: "AdmicroAdsSDK"),
-                .product(name: "IGListKit", package: "IGListKit"),
-                .product(name: "IGListDiffKit", package: "IGListKit")
+                .target(name: "IGListKit"),
+                .target(name: "IGListDiffKit")
             ],
             path: "Sources/IGListKit_AdmicroAdsSDKTarget"
         ),
