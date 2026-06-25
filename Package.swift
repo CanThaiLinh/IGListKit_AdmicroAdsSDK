@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/CanThaiLinh/AdmicroAdsSDK.git", exact: "2.1.24"),
-        .package(url: "https://github.com/Instagram/IGListKit.git", from: "4.0.0")
+        .package(url: "https://github.com/Instagram/IGListKit.git", from: "5.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
