@@ -1,0 +1,43 @@
+// swift-tools-version: 5.9
+import PackageDescription
+
+let package = Package(
+    name: "IGListKit_AdmicroAdsSDK",
+    platforms: [
+        .iOS(.v12)
+    ],
+    products: [
+        // Wrapper product – consumer chỉ cần add package này,
+        // tất cả transitive deps (IGListKit, IGListDiffKit, AdmicroAdsSDK) được tự động resolve
+        .library(
+            name: "IGListKit_AdmicroAdsSDK",
+            targets: ["IGListKit_AdmicroAdsSDK_Wrapper"]
+        ),
+    ],
+    dependencies: [
+        // IGListKit chính thức từ Instagram (cung cấp IGListKit + IGListDiffKit)
+        .package(url: "https://github.com/Instagram/IGListKit", from: "5.0.0"),
+        // AdmicroAdsSDK
+        .package(url: "https://github.com/CanThaiLinh/AdmicroAdsSDK.git", exact: "2.1.24")
+    ],
+    targets: [
+        // STATIC xcframework từ release 1.1.13 – không có @rpath dependency → SPM compatible
+        .binaryTarget(
+            name: "IGListKit_AdmicroAdsSDK_Binary",
+            url: "https://github.com/CanThaiLinh/IGListKit_AdmicroAdsSDK/releases/download/1.1.13/IGListKit_AdmicroAdsSDK_V2.zip",
+            checksum: "e5f82cfe791255a02d725f1acfae7e8116983650647d40f2c58fdf3b0b6278f5"
+        ),
+        // Wrapper target: kéo binary + tất cả dynamic deps vào cùng 1 target
+        // SPM sẽ link IGListKit/IGListDiffKit statically vào consumer app
+        .target(
+            name: "IGListKit_AdmicroAdsSDK_Wrapper",
+            dependencies: [
+                "IGListKit_AdmicroAdsSDK_Binary",
+                .product(name: "IGListKit",     package: "IGListKit"),
+                .product(name: "IGListDiffKit", package: "IGListKit"),
+                .product(name: "AdmicroAdsSDK", package: "AdmicroAdsSDK"),
+            ],
+            path: "Sources/IGListKit_AdmicroAdsSDK_Wrapper"
+        )
+    ]
+)

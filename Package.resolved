@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "admicroadssdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CanThaiLinh/AdmicroAdsSDK.git",
+      "state" : {
+        "revision" : "f8acb2e8ae25d8e743169d3bcd2e07e519be03d2",
+        "version" : "2.1.24"
+      }
+    },
+    {
+      "identity" : "iglistkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Instagram/IGListKit.git",
+      "state" : {
+        "revision" : "894c34db0593a0049520ccf9444803db78c64c28",
+        "version" : "5.2.0"
+      }
+    }
+  ],
+  "version" : 2
+}
