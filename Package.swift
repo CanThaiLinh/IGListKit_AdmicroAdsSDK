@@ -18,13 +18,13 @@ let package = Package(
         // IGListKit chính thức từ Instagram (cung cấp IGListKit + IGListDiffKit)
         .package(url: "https://github.com/Instagram/IGListKit", from: "5.0.0"),
         // AdmicroAdsSDK
-        .package(url: "https://github.com/CanThaiLinh/AdmicroAdsSDK.git", exact: "2.1.24")
+        .package(url: "https://github.com/CanThaiLinh/AdmicroAdsSDK.git", exact: "2.1.25")
     ],
     targets: [
-        // STATIC xcframework từ release 1.1.13 – không có @rpath dependency → SPM compatible
+        // STATIC xcframework từ release 1.1.14 – không có @rpath dependency → SPM compatible
         .binaryTarget(
             name: "IGListKit_AdmicroAdsSDK_Binary",
-            url: "https://github.com/CanThaiLinh/IGListKit_AdmicroAdsSDK/releases/download/1.1.13/IGListKit_AdmicroAdsSDK_V2.zip",
+            url: "https://github.com/CanThaiLinh/IGListKit_AdmicroAdsSDK/releases/download/1.1.14/IGListKit_AdmicroAdsSDK_V2.zip",
             checksum: "e5f82cfe791255a02d725f1acfae7e8116983650647d40f2c58fdf3b0b6278f5"
         ),
         // Wrapper target: kéo binary + tất cả dynamic deps vào cùng 1 target
