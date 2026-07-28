@@ -18,7 +18,7 @@ let package = Package(
         // IGListKit chính thức từ Instagram (cung cấp IGListKit + IGListDiffKit)
         .package(url: "https://github.com/Instagram/IGListKit", from: "5.0.0"),
         // AdmicroAdsSDK
-        .package(url: "https://github.com/CanThaiLinh/AdmicroAdsSDK.git", exact: "2.1.31")
+        .package(url: "https://github.com/CanThaiLinh/AdmicroAdsSDK.git", exact: "2.1.33")
     ],
     targets: [
         // STATIC xcframework từ release 1.1.14 – không có @rpath dependency → SPM compatible
